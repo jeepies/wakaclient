@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import "dotenv/config";
 
-import { WakaTimeClient, Range } from "../src/WakaTimeClient";
+import WakaClient, { Range } from "../src/WakaClient";
 
 const { API_KEY, USER_ID } = process.env;
 
@@ -9,10 +9,10 @@ if (!API_KEY || !USER_ID)
   throw new Error(".env is not set up correctly. please read the readme.");
 
 describe("🧪 WakaTime Client Tests", () => {
-  let client: WakaTimeClient;
+  let client: WakaClient;
 
   beforeEach(() => {
-    client = new WakaTimeClient(API_KEY);
+    client = new WakaClient(API_KEY);
   });
 
   describe("getCurrentUser", () => {

@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import Range from "./Range";
 
-class WakaTimeClient {
+class WakaClient {
   private client: AxiosInstance;
 
   /**
@@ -56,4 +56,5 @@ class WakaTimeClient {
   }
 }
 
-export { WakaTimeClient, Range };
+export default WakaClient;
+export { Range };
