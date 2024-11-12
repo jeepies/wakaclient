@@ -1,6 +1,6 @@
 {
-  "name": "wakatime-client",
-  "description": "🧮 Retrieve data from WakaTime ",
+  "name": "@jeepies/wakatime-client",
+  "description": "🧮 Retrieve data from WakaTime",
   "author": "Jay Davis <J141ck@gmail.com>",
   "version": "0.0.1",
   "license": "ISC",
