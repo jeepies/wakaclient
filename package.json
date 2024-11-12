@@ -2,10 +2,14 @@
   "name": "wakaclient",
   "description": "🧮 Retrieve data from WakaTime",
   "author": "Jay Davis <J141ck@gmail.com>",
-  "version": "0.0.81",
+  "version": "0.0.82",
   "license": "ISC",
   "main": "dist/WakaClient.js",
   "types": "dist/WakaClient.d.ts",
+  "files": [
+    "dist/WakaClient.js",
+    "dist/Range.js"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "husky",
