@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import Range from "./Range";
+import { AxiosResponse } from "../node_modules/axios/index";
 
 class WakaClient {
   private client: AxiosInstance;
@@ -24,7 +25,7 @@ class WakaClient {
     identifier = this.verifyIdentifier(identifier);
     return this.client
       .get(`/users/${identifier}`)
-      .then((response) => response.data);
+      .then((response: AxiosResponse) => response.data);
   }
 
   /**
@@ -45,6 +46,11 @@ class WakaClient {
     return this.getUser(id);
   }
 
+  /**
+   * Get a users stats
+   * @param parameters
+   * @returns {Object}
+   */
   getStats(parameters?: { identifier?: string | number; range?: Range }) {
     parameters = {
       identifier: parameters?.identifier ?? "current",
@@ -52,7 +58,7 @@ class WakaClient {
     };
     return this.client
       .get(`/users/${parameters.identifier}/stats/${parameters.range}`)
-      .then((response) => response.data);
+      .then((response: AxiosResponse) => response.data);
   }
 }
 
