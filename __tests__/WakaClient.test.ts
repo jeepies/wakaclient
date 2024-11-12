@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import "dotenv/config";
 
-import WakaClient, { Range } from "../src/WakaClient";
+import { WakaClient, Range } from "../src/WakaClient";
 
 const { API_KEY, USER_ID } = process.env;
 

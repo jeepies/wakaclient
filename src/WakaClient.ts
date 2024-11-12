@@ -68,5 +68,4 @@ class WakaClient {
   }
 }
 
-export default WakaClient;
-export { Range };
+export { WakaClient, Range };
