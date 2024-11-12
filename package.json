@@ -2,7 +2,7 @@
   "name": "wakaclient",
   "description": "🧮 Retrieve data from WakaTime",
   "author": "Jay Davis <J141ck@gmail.com>",
-  "version": "0.0.83",
+  "version": "0.0.84",
   "license": "ISC",
   "main": "dist/WakaClient.js",
   "types": "dist/WakaClient.d.ts",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@eslint/js": "^9.14.0",
     "@jest/globals": "^29.7.0",
+    "@types/node": "^22.9.0",
     "dotenv": "^16.4.5",
     "eslint": "^9.14.0",
     "git-format-staged": "^3.1.1",

@@ -1,5 +1,4 @@
-import axios, { AxiosInstance } from "axios";
-import { AxiosResponse } from "../node_modules/axios/index";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 enum Range {
   LAST_7_DAYS = "last_7_days",
