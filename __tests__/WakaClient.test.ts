@@ -55,4 +55,11 @@ describe("🧪 WakaTime Client Tests", () => {
       expect(data.total).toBeDefined();
     });
   });
+
+  describe('getDurations', () => {
+    test("should get the durations for the current user", async () => {
+      const { data: { data } } = await client.getDurations();
+      expect(data).toBeDefined();
+    })
+  });
 });

@@ -76,6 +76,28 @@ class WakaClient {
     identifier = this.verifyIdentifier(identifier);
     return this.client.get(`/users/${identifier}/projects`);
   }
+
+  /**
+   * Get a users heartbeat durations
+   * @param parameters
+   * @returns {Object}
+   */
+  getDurations(parameters?: {
+    identifier?: string;
+    date?: Date;
+    project?: string;
+  }) {
+    parameters = {
+      identifier: parameters?.identifier ?? "current",
+      date: parameters?.date ?? new Date(),
+    };
+    return this.client.get(`/users/${parameters.identifier}/durations`, {
+      params: {
+        date: parameters.date?.getDate(),
+        project: parameters.project,
+      },
+    });
+  }
 }
 
 export { WakaClient, Range };
