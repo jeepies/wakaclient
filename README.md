@@ -81,3 +81,11 @@ const projects = await wakaClient.getProjects(
   "c4bfb54e-3722-4b4e-b236-50c8d60077d1",
 ); // will get the projects for the user
 ```
+
+#### getDurations
+This method will get a users durations (heartbeat total time)
+
+```js
+const durations = await wakaClient.getDurations();
+const durations = await wakaClient.getDurations({ identifier: "c4bfb54e-3722-4b4e-b236-50c8d60077d1", date: new Date(), project: "wakaclient" });
+```
