@@ -47,4 +47,12 @@ describe("🧪 WakaTime Client Tests", () => {
       });
     });
   });
+
+  describe("getProjects", () => {
+    test("should get a list of the current users projects", async () => {
+      const { data } = await client.getProjects();
+      expect(data).toBeDefined();
+      expect(data.total).toBeDefined();
+    });
+  });
 });

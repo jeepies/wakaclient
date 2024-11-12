@@ -47,9 +47,9 @@ class WakaClient {
    * @param id
    * @returns {Object}
    */
-  getUserByID(id: string) {
-    id = id.toString();
-    return this.getUser(id);
+  getUserByID(identifier: string) {
+    identifier = this.verifyIdentifier(identifier);
+    return this.getUser(identifier);
   }
 
   /**
@@ -57,7 +57,7 @@ class WakaClient {
    * @param parameters
    * @returns {Object}
    */
-  getStats(parameters?: { identifier?: string | number; range?: Range }) {
+  getStats(parameters?: { identifier?: string; range?: Range }) {
     parameters = {
       identifier: parameters?.identifier ?? "current",
       range: parameters?.range ?? Range.ALL_TIME,
@@ -65,6 +65,16 @@ class WakaClient {
     return this.client
       .get(`/users/${parameters.identifier}/stats/${parameters.range}`)
       .then((response: AxiosResponse) => response.data);
+  }
+
+  /**
+   * Get a users projects
+   * @param identifier
+   * @returns {Object}
+   */
+  getProjects(identifier?: string) {
+    identifier = this.verifyIdentifier(identifier);
+    return this.client.get(`/users/${identifier}/projects`);
   }
 }
 
