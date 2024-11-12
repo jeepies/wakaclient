@@ -17,8 +17,8 @@ class WakaTimeClient {
     });
   }
 
-  private verifyIdentifier = (identifier?: string | number) =>
-    identifier ? identifier.toString() : "current";
+  private verifyIdentifier = (identifier?: string) =>
+    identifier ? identifier : "current";
 
   private getUser(identifier?: string) {
     identifier = this.verifyIdentifier(identifier);
@@ -40,18 +40,19 @@ class WakaTimeClient {
    * @param id
    * @returns {Object}
    */
-  getUserByID(id: string | number) {
+  getUserByID(id: string) {
     id = id.toString();
     return this.getUser(id);
   }
 
-  /**
-   * Get a users stats
-   * @param identifier The users ID - leave blank for current user
-   */
-  getStats(identifier?: string | number) {
-    identifier = this.verifyIdentifier(identifier);
-    this.client.get(`/users/${identifier}/stats/`);
+  getStats(parameters?: { identifier?: string | number; range?: Range }) {
+    parameters = {
+      identifier: parameters?.identifier ?? "current",
+      range: parameters?.range ?? Range.ALL_TIME,
+    };
+    return this.client
+      .get(`/users/${parameters.identifier}/stats/${parameters.range}`)
+      .then((response) => response.data);
   }
 }
 

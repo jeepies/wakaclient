@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import "dotenv/config";
 
-import WakaTimeClient from "../src/WakaTimeClient";
+import WakaTimeClient, { Range } from "../src/WakaTimeClient";
 
 const { API_KEY, USER_ID } = process.env;
 
@@ -28,6 +28,23 @@ describe("🧪 WakaTime Client Tests", () => {
       const { data } = await client.getUserByID(USER_ID);
       expect(data).toBeDefined();
       expect(data.id).toEqual(USER_ID);
+    });
+  });
+
+  describe("getStats", () => {
+    test("should get the current all time users stats", async () => {
+      const { data } = await client.getStats();
+      expect(data).toBeDefined();
+      expect(data).toMatchObject({
+        range: "all_time",
+      });
+    });
+
+    test("should get the current user stats for the last 7 days", async () => {
+      const { data } = await client.getStats({ range: Range.LAST_7_DAYS });
+      expect(data).toMatchObject({
+        range: "last_7_days",
+      });
     });
   });
 });
