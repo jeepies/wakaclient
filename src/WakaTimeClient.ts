@@ -56,5 +56,4 @@ class WakaTimeClient {
   }
 }
 
-export default WakaTimeClient;
-export { Range };
+export { WakaTimeClient, Range };
