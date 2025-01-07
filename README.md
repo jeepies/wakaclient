@@ -20,7 +20,7 @@ Now that you have initialized a client, you can call the methods on it.
 
 #### Range
 
-In order to access data ranges, you can import the enum type
+In order to access date ranges, you can import the enum type
 
 ```js
 import { WakaClient, Range } from "wakaclient";
