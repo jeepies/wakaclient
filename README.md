@@ -26,7 +26,7 @@ In order to access date ranges, you can import the enum type
 import { WakaClient, Range } from "wakaclient";
 ```
 
-You will then have access to the data ranges
+You will then have access to the date ranges
 
 ```ts
 enum Range {
